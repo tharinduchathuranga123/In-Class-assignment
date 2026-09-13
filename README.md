@@ -5,13 +5,28 @@ A modern, functional, and beautifully designed mobile application built with **F
 
 ---
 
+## 🔗 Repository & Submission Information
+
+- **Git Repository Link**: [https://github.com/tharinduchathuranga123/In-Class-assignment.git](https://github.com/tharinduchathuranga123/In-Class-assignment.git)
+- **Suggested Git Commit Message**: `Complete Flutter in-class Task Manager challenge`
+
+### 📋 Submission Checklist
+
+9. **Flutter Source Code**: Complete source code in `lib/` directory following MVC structure.
+10. **Git Repository Link**: Configured and pushed to [In-Class-assignment](https://github.com/tharinduchathuranga123/In-Class-assignment.git).
+11. **Screenshots & UI Previews**: Documented layout structures for Home, Add Task, and Task Details.
+12. **README File**: Comprehensive instructions, setup, and architecture documentation.
+13. **Working Demonstration**: Ready for live class demonstration with sample data and test suite.
+
+---
+
 ## 🌟 Key Features & Requirements
 
-1. **Dashboard & Summary Metrics (Screen 1)**: Real-time overview of **Total Tasks**, **Completed Tasks**, and **Pending Tasks**.
+1. **Dashboard & Summary Metrics (Screen 1)**: Real-time overview of **Total Tasks (5)**, **Completed Tasks (2)**, and **Pending Tasks (3)**.
 2. **Task Creation Form (Screen 2)**: Form for adding new tasks with category icons and color-coded priority pickers.
 3. **Task Categorization**: Support for suggested academic categories (`Assignment 📝`, `Lecture 🎓`, `Research 🔬`, `Exam ✏️`, `Personal 👤`).
 4. **Priority Indicators**: Color-coded badges for priority levels (`High 🔴`, `Medium 🟠`, `Low 🟢`).
-5. **Form Validation**: Strict validation preventing empty task submission.
+5. **Form Validation**: Strict non-empty task submission validation.
 6. **Task Status Toggle**: Seamlessly mark tasks as `Completed` or `Pending`.
 7. **Task Deletion**: Easily remove tasks from the manager.
 8. **Detailed Task View (Screen 3)**: Modal sheet view displaying full task metadata with action controls.
@@ -77,8 +92,8 @@ lib/
 
 1. **Clone the repository**:
    ```bash
-   git clone <YOUR_GIT_REPOSITORY_URL>
-   cd "In Class Assigment"
+   git clone https://github.com/tharinduchathuranga123/In-Class-assignment.git
+   cd "In-Class-assignment"
    ```
 
 2. **Install dependencies**:
@@ -96,12 +111,4 @@ lib/
 To run the controller logic and state management test suite:
 ```bash
 flutter test
-```
-
----
-
-## 💡 Suggested Git Commit Message
-```bash
-git add .
-git commit -m "Complete Flutter in-class Task Manager challenge"
 ```
