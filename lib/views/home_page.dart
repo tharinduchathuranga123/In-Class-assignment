@@ -20,23 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _selectedFilter = 'All'; // Filters: 'All', 'Pending', 'Completed'
 
-  @override
-  void initState() {
-    super.initState();
-    // Listen for changes in TaskController to rebuild UI
-    widget.controller.addListener(_onControllerUpdate);
-  }
-
-  @override
-  void dispose() {
-    widget.controller.removeListener(_onControllerUpdate);
-    super.dispose();
-  }
-
-  void _onControllerUpdate() {
-    setState(() {});
-  }
-
   /// Navigates to Screen 2 - Add Task Page
   Future<void> _navigateToAddTask() async {
     final newTask = await Navigator.push<Task>(
@@ -47,16 +30,19 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (newTask != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Task "${newTask.title}" added successfully!'),
-          backgroundColor: AppTheme.secondaryColor,
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+      setState(() {}); // Rebuild UI to display newly added task
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Task "${newTask.title}" added successfully!'),
+            backgroundColor: AppTheme.secondaryColor,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
-        ),
-      );
+        );
+      }
     }
   }
 
@@ -70,7 +56,9 @@ class _HomePageState extends State<HomePage> {
         task: task,
         index: originalIndex,
         onToggleStatus: () {
-          widget.controller.changeStatus(originalIndex);
+          setState(() {
+            widget.controller.changeStatus(originalIndex);
+          });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -84,7 +72,9 @@ class _HomePageState extends State<HomePage> {
           );
         },
         onDelete: () {
-          widget.controller.deleteTask(originalIndex);
+          setState(() {
+            widget.controller.deleteTask(originalIndex);
+          });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Task "${task.title}" deleted'),
@@ -272,10 +262,14 @@ class _HomePageState extends State<HomePage> {
                           return TaskCard(
                             task: task,
                             onToggleStatus: () {
-                              widget.controller.changeStatus(originalIndex);
+                              setState(() {
+                                widget.controller.changeStatus(originalIndex);
+                              });
                             },
                             onDelete: () {
-                              widget.controller.deleteTask(originalIndex);
+                              setState(() {
+                                widget.controller.deleteTask(originalIndex);
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content:

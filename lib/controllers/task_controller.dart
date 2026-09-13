@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
 import '../models/task.dart';
 
-/// Manages task list state and business logic according to MVC pattern.
-class TaskController extends ChangeNotifier {
+/// Pure Dart TaskController managing task list state and business logic according to pure MVC pattern.
+/// Contains zero Flutter or Material dependencies.
+class TaskController {
   final List<Task> tasks = [];
 
   TaskController() {
@@ -46,25 +46,22 @@ class TaskController extends ChangeNotifier {
     ]);
   }
 
-  /// Adds a new task to the task list and notifies listeners.
+  /// Adds a new task to the task list.
   void addTask(Task task) {
     tasks.insert(0, task);
-    notifyListeners();
   }
 
-  /// Deletes a task by index and notifies listeners.
+  /// Deletes a task by index.
   void deleteTask(int index) {
     if (index >= 0 && index < tasks.length) {
       tasks.removeAt(index);
-      notifyListeners();
     }
   }
 
-  /// Toggles task completion status (Completed <-> Pending) and notifies listeners.
+  /// Toggles task completion status (Completed <-> Pending).
   void changeStatus(int index) {
     if (index >= 0 && index < tasks.length) {
       tasks[index].completed = !tasks[index].completed;
-      notifyListeners();
     }
   }
 
