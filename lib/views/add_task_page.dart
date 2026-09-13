@@ -72,7 +72,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
           child: Form(
             key: _formKey,
             child: Column(
-              crossAxisAlignment: CrossAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Section Title: Task Name
                 const Text(
@@ -183,7 +183,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                           ),
                           selected: isSelected,
                           selectedColor: priorityColor,
-                          backgroundColor: priorityColor.withOpacity(0.1),
+                          backgroundColor: priorityColor.withValues(alpha: 0.1),
                           showCheckmark: false,
                           onSelected: (selected) {
                             if (selected) {

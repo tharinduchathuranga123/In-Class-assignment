@@ -31,7 +31,7 @@ class TaskDetailSheet extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Drag indicator handle
           Center(
@@ -98,7 +98,7 @@ class TaskDetailSheet extends StatelessWidget {
                     color: AppTheme.primaryColor,
                   ),
                 ),
-                backgroundColor: AppTheme.primaryColor.withOpacity(0.1),
+                backgroundColor: AppTheme.primaryColor.withValues(alpha: 0.1),
                 side: BorderSide.none,
               ),
             ],
@@ -124,7 +124,7 @@ class TaskDetailSheet extends StatelessWidget {
                     color: priorityColor,
                   ),
                 ),
-                backgroundColor: priorityColor.withOpacity(0.12),
+                backgroundColor: priorityColor.withValues(alpha: 0.12),
                 side: BorderSide.none,
               ),
             ],
@@ -146,8 +146,8 @@ class TaskDetailSheet extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: task.completed
-                      ? AppTheme.secondaryColor.withOpacity(0.15)
-                      : Colors.orange.withOpacity(0.15),
+                      ? AppTheme.secondaryColor.withValues(alpha: 0.15)
+                      : Colors.orange.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
